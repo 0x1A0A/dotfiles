@@ -1,0 +1,63 @@
+configuration {
+  timeout {
+      delay:  4;
+      action: "kb-cancel";
+  }
+}
+
+@import "colors.rasi"
+
+#window {
+    location    : north east;
+    anchor      : north east;
+    width       : 22em;
+    height      : 8.5em;
+    background-color: @bg-color;
+    font : "Fira Mono 11";
+}
+
+#mainbox {
+	background-color : transparent;
+	spacing: 0px;
+}
+
+#inputbar {
+	background-color : @core-color;
+	padding : 0px 0px;
+}
+
+#prompt {
+	font : "Fira Mono 12";
+	padding : 5px 12px;
+    background-color : @core-color;
+}
+
+#case-indicator {
+	enabled : false;
+	background-color : transparent;
+}
+
+#entry {
+	enabled : false;
+    background-color : @bg-color;
+	padding : 5px 12px;
+    text-color : white;
+}
+
+#listview {
+    margin : 0px 0px 0px 0px;
+	padding : 10px 5px;
+	background-color : @view-bg-color;
+	dynamic: true;
+}
+
+#element {
+	background-color : transparent;
+	text-color : @t-color;
+	padding : 0px 0px 0px 10px;
+}
+
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}

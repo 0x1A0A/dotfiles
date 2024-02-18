@@ -1,0 +1,73 @@
+configuration {
+	show-icons: true;
+	display-window : "JUMP";
+}
+
+@import "colors.rasi"
+
+#window {
+    location    : north west;
+    anchor      : north west;
+    width       : 24%;
+    height      : 100%;
+    background-color: @core-color;
+    font : "Fira Mono 11";
+}
+
+#mainbox {
+	background-color : transparent;
+	spacing: 0px;
+}
+
+#inputbar {
+	background-color : transparent;
+	padding : 0px 0px;
+}
+
+#prompt {
+    padding : 5px 12px;
+    background-color : @core-color;
+}
+
+#case-indicator {
+	background-color : transparent;
+}
+
+#entry {
+	margin : 0px 20px 0px 0px;
+    background-color : transparent;
+	padding : 5px 0px;
+    text-color : white;
+}
+
+#listview {
+    margin : 0px 0px 0px 0px;
+	padding : 10px 5px;
+	background-color : @view-bg-color;
+	dynamic : true;
+	layout: vertical;
+}
+
+#element {
+	highlight: none;
+	background-color : transparent;
+	text-color : @t-color;
+	padding : 5px;
+	orientation: horizontal;
+}
+
+#element selected {
+    text-color : white;
+    background-color: @picker-color;
+}
+
+#element-icon { 
+	background-color: inherit;
+    text-color:       inherit;
+	size: 2ch ; 
+}
+
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}

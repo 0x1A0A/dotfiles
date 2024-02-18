@@ -1,0 +1,60 @@
+configuration {
+}
+
+@import "colors.rasi"
+
+#window {
+    location    : center;
+    anchor      : center;
+    width       : 20em;
+    height      : 14em;
+    background-color: @bg-color;
+    font : "Fira Mono 11";
+}
+
+#mainbox {
+	background-color : transparent;
+	spacing: 0px;
+}
+
+#inputbar {
+	background-color : transparent;
+	padding : 0px 0px;
+}
+
+#prompt {
+    padding : 5px 12px;
+    background-color : @core-color;
+}
+
+#case-indicator {
+	background-color : transparent;
+}
+
+#entry {
+    background-color : @bg-color;
+	padding : 5px 12px;
+    text-color : white;
+}
+
+#listview {
+    margin : 0px 0px 0px 0px;
+	padding : 10px 5px;
+	background-color : @view-bg-color;
+}
+
+#element {
+	background-color : transparent;
+	text-color : @t-color;
+	padding : 0px 0px 0px 10px;
+}
+
+#element selected {
+    text-color : white;
+    background-color: @picker-color;
+}
+
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}

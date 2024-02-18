@@ -1,0 +1,15 @@
+* {
+	bg-color : #191a19;
+	core-color : #d8e9a8;
+	picker-color : #4e9f3d;
+	view-bg-color: #303236;
+	t-color : #cccccc;
+}
+
+//* {
+//	bg-color : #1f1f1f;
+//	core-color : #f1c60b;
+//	picker-color : #118eff;
+//	view-bg-color: #303236;
+//	t-color : #cccccc;
+//}
