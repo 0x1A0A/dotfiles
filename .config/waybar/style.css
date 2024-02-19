@@ -58,9 +58,8 @@ window#waybar {
 }
 
 #window {
-    margin-left: 20px;
     margin-right: 60px;
-	border-radius: 2rem;
+	border-radius: 0 2rem 2rem 0;
 	padding: 0px 1rem;
     background: red;
     background: #cdd6f4;

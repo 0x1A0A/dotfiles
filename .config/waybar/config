@@ -7,7 +7,6 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
-        "clock",
 		"hyprland/window"
     ],
     "modules-center": [],
@@ -16,6 +15,7 @@
         "battery",
         "backlight",
         "pulseaudio",
+        "clock",
     ],
     "hyprland/window": {
         "format": "{}"

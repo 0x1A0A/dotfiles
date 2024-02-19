@@ -45,7 +45,16 @@ lspconfig["bashls"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["volar"].setup{
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+--lspconfig["volar"].setup{
+--  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+--}
+
+
+lspconfig.denols.setup {
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
+lspconfig.tsserver.setup {
+  root_dir = lspconfig.util.root_pattern("package.json"),
+  single_file_support = false
+}
