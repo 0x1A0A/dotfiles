@@ -2,10 +2,17 @@ local conform = require("conform")
 
 conform.setup({
 	formatters_by_ft = {
+		javascript = { { "prettierd", "prettier" } },
+		typescript = { { "prettierd", "prettier" } },
+		css = { { "prettierd", "prettier" } },
+		html = { { "prettierd", "prettier" } },
+		yaml = { { "prettierd", "prettier" } },
+		json = { { "prettierd", "prettier" } },
+		markdown = { { "prettierd", "prettier" } },
 		lua = { "stylua" },
-		-- Conform will run multiple formatters sequentially
-		javascript = { "prettier" },
-
+		rust = { "rustfmt" },
+		go = { "gofmt" },
+		sh = { "shfmt" },
 		gdscript = { "gdformat" },
 	},
 })
