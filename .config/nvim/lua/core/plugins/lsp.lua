@@ -1,60 +1,71 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Enable completion triggered by <c-x><c-o>
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf }
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "<space>wl", function()
+			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		end, opts)
+		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		--    vim.keymap.set('n', '<space>fm', function()
+		--      vim.lsp.buf.format { async = true }
+		--    end, opts)
+	end,
+})
+
 local lspconfig = require("lspconfig")
-
-local on_attach = function(client, _)
-	--	client.server_capabilities.documentFormattingProvider = false
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
-
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {})
-	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, {})
-	vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, {})
-	vim.keymap.set("n", "<space>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, {})
-	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, {})
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
-	vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, {})
-	vim.keymap.set("n", "<space>fm", function()
-		vim.lsp.buf.format({ async = true })
-	end, {})
-end
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local get_servers = require("mason-lspconfig").get_installed_servers
 for _, server_name in ipairs(get_servers()) do
 	lspconfig[server_name].setup({
 		capabilities = capabilities,
-		on_attach = on_attach,
 	})
 end
 
 lspconfig["gdscript"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig["bashls"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 --lspconfig["volar"].setup{
 --  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 --}
 
+lspconfig.denols.setup({
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
 
-lspconfig.denols.setup {
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-}
-
-lspconfig.tsserver.setup {
-  root_dir = lspconfig.util.root_pattern("package.json"),
-  single_file_support = false
-}
+lspconfig.tsserver.setup({
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = false,
+})
