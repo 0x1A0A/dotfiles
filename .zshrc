@@ -120,3 +120,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export DENO_INSTALL="/home/defalse/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed 's/:$//')
