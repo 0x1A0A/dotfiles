@@ -1,21 +1,30 @@
 local conform = require("conform")
 
+local format = {
+	lua = { "stylua" },
+	rust = { "rustfmt" },
+	go = { "gofmt" },
+	sh = { "shfmt" },
+	gdscript = { "gdformat" },
+}
+
+local prettier = {
+	"javascript",
+	"typescript",
+	"css",
+	"scss",
+	"html",
+	"yaml",
+	"json",
+	"markdown",
+}
+
+for _, key in ipairs(prettier) do
+	format[key] = { { "prettierd", "prettier" } }
+end
+
 conform.setup({
-	formatters_by_ft = {
-		javascript = { { "prettierd", "prettier" } },
-		typescript = { { "prettierd", "prettier" } },
-		css = { { "prettierd", "prettier" } },
-		scss = { { "prettierd", "prettier" } },
-		html = { { "prettierd", "prettier" } },
-		yaml = { { "prettierd", "prettier" } },
-		json = { { "prettierd", "prettier" } },
-		markdown = { { "prettierd", "prettier" } },
-		lua = { "stylua" },
-		rust = { "rustfmt" },
-		go = { "gofmt" },
-		sh = { "shfmt" },
-		gdscript = { "gdformat" },
-	},
+	formatters_by_ft = format,
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>fm", function()
