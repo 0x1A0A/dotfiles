@@ -5,6 +5,7 @@ conform.setup({
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		css = { { "prettierd", "prettier" } },
+		scss = { { "prettierd", "prettier" } },
 		html = { { "prettierd", "prettier" } },
 		yaml = { { "prettierd", "prettier" } },
 		json = { { "prettierd", "prettier" } },
