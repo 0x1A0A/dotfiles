@@ -6,6 +6,8 @@ local format = {
 	go = { "gofmt" },
 	sh = { "shfmt" },
 	gdscript = { "gdformat" },
+	cpp = { "clang_format" },
+	c = { "clang_format" },
 }
 
 local prettier = {
@@ -20,7 +22,7 @@ local prettier = {
 }
 
 for _, key in ipairs(prettier) do
-	format[key] = { { "prettierd", "prettier" } }
+	format[key] = { "prettierd" }
 end
 
 conform.setup({
