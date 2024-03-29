@@ -1,37 +1,15 @@
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "FiraCode Nerd Font Mono";
-    font-weight: bold;
-    font-size: 14px;
-    min-height: 0;
-    background: rgba(21, 18, 27, 255);
+  border: none;
+  border-radius: 0;
+  font-family: "FiraCode Nerd Font Mono";
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+  background: rgba(21, 18, 27, 255);
 }
 
 window#waybar {
-    color: #cdd6f4;
-}
-
-#workspaces button {
-    padding: 5px;
-    color: #313244;
-    margin-right: 5px;
-}
-
-#workspaces button.active {
-    color: #a6adc8;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-}
-
-#workspaces button:hover {
-    color: #cdd6f4;
+  color: #cdd6f4;
 }
 
 #custom-caffeine,
@@ -40,47 +18,41 @@ window#waybar {
 #battery,
 #pulseaudio,
 #network,
-#workspaces,
 #tray,
 #backlight {
-    padding: 0px 4px;
-    margin: 3px 0px;
+  padding: 0px 4px;
+  margin: 3px 0px;
 }
 
 #tray {
-    margin-right: 10px;
-}
-
-#workspaces {
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
+  margin-right: 10px;
 }
 
 #window {
-    margin-right: 60px;
-	border-radius: 0 2rem 2rem 0;
-	padding: 0px 1rem;
-    background: red;
-    background: #cdd6f4;
-    color: rgba(21, 18, 27, 255);
+  margin-right: 60px;
+  padding: 0px 1rem;
+  background: #cdd6f4;
+  color: rgba(21, 18, 27, 255);
+}
+
+#window label {
+  background: #cdd6f4;
 }
 
 #clock {
-    color: #fab387;
-    margin-left: 5px;
+  color: #fab387;
+  margin-left: 5px;
 }
 
 #network {
-    color: #f9e2af;
+  color: #f9e2af;
 }
 
 #pulseaudio {
-    color: #89b4fa;
+  color: #89b4fa;
 }
 
 #battery {
-    color: #a6e3a1;
-    margin-right: 10px;
+  color: #a6e3a1;
+  margin-right: 10px;
 }
-
