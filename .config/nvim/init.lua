@@ -9,6 +9,8 @@ vim.opt.updatetime = 66
 vim.opt.foldenable = false
 vim.opt.foldmethod = "indent"
 
+vim.opt.syntax = "off"
+
 vim.opt.cul = true
 vim.opt.hlsearch = false
 
