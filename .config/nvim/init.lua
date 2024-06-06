@@ -1,6 +1,5 @@
 require("core.keymap")
-require("core.plugins")
-require("core.packer")
+require("core.lazy")
 
 vim.opt.guicursor = ""
 vim.opt.number = true
@@ -23,4 +22,3 @@ vim.opt.scrolloff = 8
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
-vim.cmd.colorscheme("catppuccin")
