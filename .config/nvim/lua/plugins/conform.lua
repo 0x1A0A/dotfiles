@@ -1,7 +1,7 @@
 return {
 	{
-			"stevearc/conform.nvim",
-			lazy = false,
+		"stevearc/conform.nvim",
+		lazy = false,
 		config = function()
 			local conform = require("conform")
 
@@ -42,5 +42,5 @@ return {
 				})
 			end)
 		end,
-	}
+	},
 }
