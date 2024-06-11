@@ -79,10 +79,6 @@ return {
 				root_dir = lspconfig.util.root_pattern("package.json"),
 				single_file_support = false,
 			})
-
-			lspconfig.angularls.setup({
-				filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "angular.html" },
-			})
 		end,
 	},
 }
