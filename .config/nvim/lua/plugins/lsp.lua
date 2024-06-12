@@ -79,6 +79,11 @@ return {
 				root_dir = lspconfig.util.root_pattern("package.json"),
 				single_file_support = false,
 			})
+
+			local ng = require("plugins.lsp.angular")
+			ng.capbilites = capabilities
+
+			lspconfig.angularls.setup(ng)
 		end,
 	},
 }
