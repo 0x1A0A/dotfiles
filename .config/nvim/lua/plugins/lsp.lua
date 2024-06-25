@@ -91,8 +91,7 @@ return {
 			ng.capbilites = capabilities
 
 			lspconfig.angularls.setup(ng)
-
-			vim.o.statusline = "%f %h%m%r%=%-14.(%l,%c%V%) %P %{" .. "v:lua.require('lsp-status').status()" .. "}"
+			vim.o.statusline = "%{v:lua.require'lsp-status'.status_progress()}" .. "%f %h%m%r%=%-14.(%l,%c%V%) %P"
 		end,
 	},
 }
