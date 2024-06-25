@@ -8,10 +8,13 @@ return {
 				build = ":MasonUpdate",
 			},
 			"williamboman/mason-lspconfig.nvim",
+			"nvim-lua/lsp-status.nvim",
 		},
 		config = function()
 			require("mason").setup()
 			require("mason-lspconfig").setup()
+			local lsp_status = require("lsp-status")
+			lsp_status.register_progress()
 
 			vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
@@ -50,11 +53,15 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities =
+				vim.tbl_extend("keep", require("cmp_nvim_lsp").default_capabilities(), lsp_status.capabilities)
 
 			local get_servers = require("mason-lspconfig").get_installed_servers
 			for _, server_name in ipairs(get_servers()) do
 				lspconfig[server_name].setup({
+					on_attach = function(client)
+						lsp_status.on_attach(client)
+					end,
 					capabilities = capabilities,
 				})
 			end
@@ -84,6 +91,8 @@ return {
 			ng.capbilites = capabilities
 
 			lspconfig.angularls.setup(ng)
+
+			vim.o.statusline = "%f %h%m%r%=%-14.(%l,%c%V%) %P %{" .. "v:lua.require('lsp-status').status()" .. "}"
 		end,
 	},
 }
