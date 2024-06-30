@@ -22,4 +22,7 @@ vim.opt.scrolloff = 8
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
-vim.o.statusline = "%<%f%h%m%r%=%b 0x%B  %l,%c%V " .. "%#NeoTreeFilterTerm#%y%## %P"
+local stl = "%<%f%h%m%r%=%b 0x%B"
+stl = stl .. " %l,%c%V"
+stl = stl .. " %#NeoTreeFilterTerm#%y%## %P"
+vim.o.statusline = stl
