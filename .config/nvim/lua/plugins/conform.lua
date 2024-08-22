@@ -17,7 +17,9 @@ return {
 
 			local prettier = {
 				"javascript",
+				"javascriptreact",
 				"typescript",
+				"typescriptreact",
 				"css",
 				"scss",
 				"html",
