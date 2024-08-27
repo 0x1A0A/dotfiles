@@ -126,4 +126,4 @@ export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed '
 eval "$(zoxide init zsh)"
 
 # Added by `rbenv init` on Tue Aug 20 01:01:48 PM +07 2024
-eval "$(~/.Null/Aurs/rbenv/bin/rbenv init - --no-rehash zsh)"
+[ -s "~/.Null/Aurs/rbenv/bin/rbenv" ] && eval "$(~/.Null/Aurs/rbenv/bin/rbenv init - --no-rehash zsh)"
