@@ -54,6 +54,7 @@ return {
 
 			local get_servers = require("mason-lspconfig").get_installed_servers
 			for _, server_name in ipairs(get_servers()) do
+				server_name = server_name == "tsserver" and "ts_ls" or server_name
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
 				})
@@ -67,15 +68,15 @@ return {
 				capabilities = capabilities,
 			})
 
-			--lspconfig["volar"].setup{
-			--  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
-			--}
+			--lspconfig["volar"].setup({
+			--filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+			--})
 
 			lspconfig.denols.setup({
 				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 			})
 
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				root_dir = lspconfig.util.root_pattern("package.json"),
 				single_file_support = false,
 			})
