@@ -68,23 +68,27 @@ return {
 				capabilities = capabilities,
 			})
 
-			--lspconfig["volar"].setup({
-			--filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-			--})
-
 			lspconfig.denols.setup({
 				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 			})
 
+			lspconfig["volar"].setup({})
+
 			lspconfig.ts_ls.setup({
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+							languages = { "javascript", "typescript", "vue" },
+						},
+					},
+				},
 				root_dir = lspconfig.util.root_pattern("package.json"),
 				single_file_support = false,
+				capabilities = capabilities,
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
-
-			local ng = require("plugins.lsp.angular")
-			ng.capbilites = capabilities
-
-			lspconfig.angularls.setup(ng)
 		end,
 	},
 }

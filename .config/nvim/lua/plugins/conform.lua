@@ -26,6 +26,7 @@ return {
 				"yaml",
 				"json",
 				"markdown",
+				"vue",
 			}
 
 			for _, key in ipairs(prettier) do
