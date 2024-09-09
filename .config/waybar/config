@@ -25,8 +25,9 @@
         "spacing": 10
     },
     "clock": {
-        "format": " {:%R  %d/%m}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": " {:%R %p %Z %z  %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"timezones": ["Asia/Bangkok"]
     },
     "backlight": {
         "device": "intel_backlight",
