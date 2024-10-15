@@ -120,10 +120,11 @@ export NVM_DIR="$HOME/.nvm"
 
 export DENO_INSTALL="/home/defalse/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-
-export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed 's/:$//')
+[ -s "~/.deno/env" ] && . "/home/defalse/.deno/env"
 
 eval "$(zoxide init zsh)"
 
 # Added by `rbenv init` on Tue Aug 20 01:01:48 PM +07 2024
 [ -s "~/.Null/Aurs/rbenv/bin/rbenv" ] && eval "$(~/.Null/Aurs/rbenv/bin/rbenv init - --no-rehash zsh)"
+
+export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed 's/:$//')
