@@ -89,6 +89,8 @@ return {
 				capabilities = capabilities,
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
+
+			lspconfig["glasgow"].setup({})
 		end,
 	},
 }
