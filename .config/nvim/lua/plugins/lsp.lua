@@ -91,6 +91,8 @@ return {
 			})
 
 			lspconfig["glasgow"].setup({})
+
+			lspconfig.rust_analyzer.setup({})
 		end,
 	},
 }
