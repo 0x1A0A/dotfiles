@@ -128,3 +128,7 @@ eval "$(zoxide init zsh)"
 [ -s "~/.Null/Aurs/rbenv/bin/rbenv" ] && eval "$(~/.Null/Aurs/rbenv/bin/rbenv init - --no-rehash zsh)"
 
 export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed 's/:$//')
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
