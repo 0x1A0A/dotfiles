@@ -15,7 +15,7 @@
         "battery",
         "backlight",
         "pulseaudio",
-        "clock",
+        "clock"
     ],
     "hyprland/window": {
         "format": "{}"
@@ -25,9 +25,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": " {:%R %p %Z %z  %d/%m}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"timezones": ["Asia/Bangkok"]
+        "format": " {:%R %p  %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "backlight": {
         "device": "intel_backlight",
