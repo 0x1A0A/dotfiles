@@ -1,4 +1,3 @@
-import = [ "~/.config/alacritty/catppuccin.toml" ]
 
 [font]
 size = 8
@@ -27,3 +26,6 @@ y = 2
 key = "Return"
 mods = "Control|Shift"
 action = "SpawnNewInstance"
+
+[general]
+import = [ "~/.config/alacritty/catppuccin.toml" ]
