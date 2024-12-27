@@ -13,6 +13,7 @@ return {
 				gdscript = { "gdformat" },
 				cpp = { "clang_format" },
 				c = { "clang_format" },
+				toml = { "taplo" },
 			}
 
 			local prettier = {
