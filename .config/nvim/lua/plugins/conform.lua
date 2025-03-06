@@ -13,7 +13,9 @@ return {
 				gdscript = { "gdformat" },
 				cpp = { "clang_format" },
 				c = { "clang_format" },
+				java = { "clang_format" },
 				toml = { "taplo" },
+				haskell = { "fourmolu" },
 			}
 
 			local prettier = {

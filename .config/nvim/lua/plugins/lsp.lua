@@ -14,8 +14,8 @@ return {
 			require("mason-lspconfig").setup()
 
 			vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+			vim.keymap.set("n", "[d", vim.diagnostic.get_prev)
+			vim.keymap.set("n", "]d", vim.diagnostic.get_next)
 			vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 			-- Use LspAttach autocommand to only map the following keys
@@ -46,6 +46,14 @@ return {
 					--    vim.keymap.set('n', '<space>fm', function()
 					--      vim.lsp.buf.format { async = true }
 					--    end, opts)
+				end,
+			})
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "haskell",
+				callback = function()
+					vim.opt.et = true
+					vim.opt.list = true
 				end,
 			})
 
@@ -92,7 +100,13 @@ return {
 
 			lspconfig["glasgow"].setup({})
 
-			lspconfig.rust_analyzer.setup({})
+			lspconfig["hls"].setup({
+				filetypes = { "haskell", "lhaskell", "cabal" },
+			})
+
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 }
