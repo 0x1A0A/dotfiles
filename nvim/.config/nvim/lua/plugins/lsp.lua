@@ -60,12 +60,12 @@ return {
 		local enable_server = {
 			"gdscript",
 			"bashls",
-			"denols",
-			"ts_ls",
 			"glasgow",
+			"ts_ls",
 			"hls",
 			"rust_analyzer",
 			"lua_ls",
+			"eslint",
 		}
 
 		for _, server in ipairs(enable_server) do
