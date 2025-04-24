@@ -10,8 +10,8 @@ return {
 		"Shatur/neovim-ayu",
 		name = "ayu-theme",
 		enabled = false,
-		config = function ()
+		config = function()
 			vim.cmd.colorscheme("ayu")
-		end
-	}
+		end,
+	},
 }
