@@ -30,6 +30,7 @@ return {
 				"json",
 				"markdown",
 				"vue",
+				"astro",
 			}
 
 			for _, key in ipairs(prettier) do
