@@ -1,5 +1,7 @@
-window-decoration=false
 theme=Catppuccin Mocha
+
 window-padding-x=8
 window-padding-y=8
 font-family=FiraCode Nerd Font Mono,Noto Sans Thai
+
+macos-option-as-alt=left
