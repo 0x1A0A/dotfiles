@@ -34,7 +34,7 @@ return {
 			}
 
 			for _, key in ipairs(prettier) do
-				format[key] = { "prettierd" }
+				format[key] = { "biome", "prettierd" }
 			end
 
 			conform.setup({
@@ -43,7 +43,7 @@ return {
 
 			vim.keymap.set({ "n", "v" }, "<leader>fm", function()
 				conform.format({
-					lsp_fallbacck = true,
+					lsp_fallback = true,
 					async = false,
 					timeout_ms = 500,
 				})
