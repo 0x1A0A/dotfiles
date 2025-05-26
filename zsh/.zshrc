@@ -125,7 +125,6 @@ eval "$(zoxide init zsh)"
 
 export PATH="$HOME/development/flutter/bin:$PATH"
 
-[ -f "/home/defalse/.ghcup/env" ] && . "/home/defalse/.ghcup/env" # ghcup-env
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/defalse/.dart-cli-completion/zsh-config.zsh ]] && . /home/defalse/.dart-cli-completion/zsh-config.zsh || true
@@ -142,3 +141,5 @@ export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed '
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+[ -f "/Users/notlinux2/.ghcup/env" ] && . "/Users/notlinux2/.ghcup/env" # ghcup-env
