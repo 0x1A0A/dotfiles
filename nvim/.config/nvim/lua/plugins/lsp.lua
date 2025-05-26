@@ -1,17 +1,17 @@
 return {
-	"neovim/nvim-lspconfig",
+
+	"mason-org/mason-lspconfig.nvim",
+	opts = {},
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
 		{
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			build = ":MasonUpdate",
+			opts = {}
 		},
-		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
-		require("mason").setup()
-		require("mason-lspconfig").setup()
-
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 		vim.keymap.set("n", "[d", vim.diagnostic.get_prev)
 		vim.keymap.set("n", "]d", vim.diagnostic.get_next)
@@ -54,21 +54,15 @@ return {
 			end,
 		})
 
-		local lspconfig = require("lspconfig")
-
 		vim.lsp.config("*", { capabilities = require("cmp_nvim_lsp").default_capabilities() })
 
 		local enable_server = {
-			"gdscript", "bashls", "denols", "ts_ls", "glasgow", "hls", "rust_analyzer"
+			"gdscript", "bashls", "denols", "ts_ls", "glasgow", "hls", "rust_analyzer", "lua_ls"
 		}
 
 		for _, server in ipairs(enable_server) do
 			vim.lsp.enable(server)
 		end
-
-		vim.lsp.config("denols", {
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-		})
 
 		vim.lsp.config("ts_ls", {
 			init_options = {
@@ -80,7 +74,6 @@ return {
 					},
 				},
 			},
-			root_dir = lspconfig.util.root_pattern("package.json"),
 			filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 		})
 
