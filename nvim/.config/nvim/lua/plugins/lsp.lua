@@ -60,7 +60,6 @@ return {
 		local enable_server = {
 			"gdscript",
 			"bashls",
-			"denols",
 			"ts_ls",
 			"glasgow",
 			"hls",
