@@ -31,10 +31,9 @@ return {
 			"vue",
 			"astro",
 		}
-
-		for _, key in ipairs(prettier) do
-			format[key] = { "biome", "prettierd" }
-		end
+			for _, key in ipairs(prettier) do
+				format[key] = { "prettierd" }
+			end
 
 		conform.setup({
 			formatters_by_ft = format,
