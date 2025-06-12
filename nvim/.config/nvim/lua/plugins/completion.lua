@@ -10,8 +10,6 @@ return {
 			['<Tab>'] = { 'select_and_accept' },
 			["<C-o>"] = { 'show', 'show_documentation', 'hide_documentation' },
 			['<S-Tab>'] = { 'snippet_forward', 'fallback' },
-			['<C-n>'] = { 'snippet_forward', 'fallback' },
-			['<C-p>'] = { 'snippet_backward', 'fallback' },
 		},
 
 		appearance = {
