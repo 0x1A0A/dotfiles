@@ -9,7 +9,7 @@ return {
 			opts = {}
 		},
 		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
+		'saghen/blink.cmp'
 	},
 	config = function()
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
@@ -54,7 +54,9 @@ return {
 			end,
 		})
 
-		vim.lsp.config("*", { capabilities = require("cmp_nvim_lsp").default_capabilities() })
+		local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
+
+		vim.lsp.config("*", { capabilities = blink_capabilities })
 
 		local enable_server = {
 			"gdscript", "bashls", "denols", "ts_ls", "glasgow", "hls", "rust_analyzer", "lua_ls"

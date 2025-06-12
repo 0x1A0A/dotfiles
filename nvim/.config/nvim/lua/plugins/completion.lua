@@ -1,32 +1,32 @@
 return {
-	"hrsh7th/nvim-cmp",
-	dependencies = {
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/vim-vsnip",
-		"rafamadriz/friendly-snippets",
-	},
-	config = function()
-		local cmp = require("cmp")
+	'saghen/blink.cmp',
+	dependencies = { 'rafamadriz/friendly-snippets' },
 
-		cmp.setup({
-			mapping = cmp.mapping.preset.insert({
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-o>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
-			}),
-			snippet = {
-				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body)
-				end,
-			},
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "vsnip" },
-			}, {
-				{ name = "buffer" },
-			}),
-		})
-	end,
+	version = '1.*',
+
+	opts = {
+		keymap = {
+			preset = 'default',
+			['<Tab>'] = { 'select_and_accept' },
+			["<C-o>"] = { 'show', 'show_documentation', 'hide_documentation' },
+			['<S-Tab>'] = { 'snippet_forward', 'fallback' },
+			['<C-n>'] = { 'snippet_forward', 'fallback' },
+			['<C-p>'] = { 'snippet_backward', 'fallback' },
+		},
+
+		appearance = {
+			nerd_font_variant = 'mono'
+		},
+
+		completion = { documentation = { auto_show = false } },
+
+		sources = {
+			default = { 'lsp', 'path', 'snippets', 'buffer' },
+		},
+
+		signature = { enabled = true },
+
+		fuzzy = { implementation = "prefer_rust_with_warning" }
+	},
+	opts_extend = { "sources.default" }
 }
