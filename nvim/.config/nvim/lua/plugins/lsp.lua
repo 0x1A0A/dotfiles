@@ -6,10 +6,10 @@ return {
 		{
 			"mason-org/mason.nvim",
 			build = ":MasonUpdate",
-			opts = {}
+			opts = {},
 		},
 		"neovim/nvim-lspconfig",
-		'saghen/blink.cmp'
+		"saghen/blink.cmp",
 	},
 	config = function()
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
@@ -20,8 +20,7 @@ return {
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
 		vim.api.nvim_create_autocmd("LspAttach", {
-			group =
-				vim.api.nvim_create_augroup("UserLspConfig", {}),
+			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				-- Enable completion triggered by <c-x><c-o>
 				vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -54,12 +53,19 @@ return {
 			end,
 		})
 
-		local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
+		local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		vim.lsp.config("*", { capabilities = blink_capabilities })
 
 		local enable_server = {
-			"gdscript", "bashls", "denols", "ts_ls", "glasgow", "hls", "rust_analyzer", "lua_ls"
+			"gdscript",
+			"bashls",
+			"denols",
+			"ts_ls",
+			"glasgow",
+			"hls",
+			"rust_analyzer",
+			"lua_ls",
 		}
 
 		for _, server in ipairs(enable_server) do

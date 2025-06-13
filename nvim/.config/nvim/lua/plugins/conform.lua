@@ -4,7 +4,6 @@ return {
 	config = function()
 		local conform = require("conform")
 
-
 		local format = {
 			lua = { "stylua" },
 			rust = { "rustfmt" },
