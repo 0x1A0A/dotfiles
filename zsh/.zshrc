@@ -134,7 +134,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="$HOME/development/flutter/bin:$PATH"
 
-[ -f "/home/defalse/.ghcup/env" ] && . "/home/defalse/.ghcup/env" # ghcup-env
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/defalse/.dart-cli-completion/zsh-config.zsh ]] && . /home/defalse/.dart-cli-completion/zsh-config.zsh || true
@@ -142,3 +141,5 @@ export PATH="$HOME/development/flutter/bin:$PATH"
 
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/nvim/mason/share/jdtls/lombok.jar"
 
+
+[ -f "/home/defalse/.ghcup/env" ] && . "/home/defalse/.ghcup/env" # ghcup-env
