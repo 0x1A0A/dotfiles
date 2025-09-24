@@ -146,3 +146,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 [ -f "/Users/notlinux2/.ghcup/env" ] && . "/Users/notlinux2/.ghcup/env" # ghcup-env
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.9/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
