@@ -17,6 +17,8 @@ fi
 # Source your static plugins file.
 source ${zsh_plugins}.zsh
 
+compstyle prezto
+
 # START Keybind
 bindkey -e
 
