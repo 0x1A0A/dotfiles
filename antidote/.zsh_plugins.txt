@@ -1,13 +1,12 @@
-mattmc3/ez-compinit
-
 belak/zsh-utils path:editor
 belak/zsh-utils path:history
 belak/zsh-utils path:prompt
 belak/zsh-utils path:utility
-belak/zsh-utils path:completion
 
 zsh-users/zsh-history-substring-search
 
 Aloxaf/fzf-tab
 
 zdharma-continuum/fast-syntax-highlighting kind:defer
+
+belak/zsh-utils path:completion
