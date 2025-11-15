@@ -30,6 +30,11 @@ overview {
         off
     }
 }
+gestures {
+    hot-corners {
+        off
+    }
+}
 layout {
     gaps 1
     center-focused-column "on-overflow"
@@ -61,11 +66,6 @@ layout {
         urgent-color "#9b0000"
     }
 }
-gestures {
-    hot-corners {
-        off
-    }
-}
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 window-rule {
     match app-id="firefox|zen$" title="^Picture-in-Picture$"
@@ -74,6 +74,33 @@ window-rule {
         fixed 240
     }
     default-floating-position x=8 y=8 relative-to="bottom-right"
+}
+window-rule {
+    match app-id="steam$"
+    exclude title="^Steam$"
+    open-floating true
+    default-column-width {
+        proportion 0.3
+    }
+    default-window-height {
+        fixed 240
+    }
+}
+window-rule {
+    match app-id="steam$" title="^Steam$"
+    default-column-width {
+        proportion 1.0
+    }
+}
+animations {
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
 }
 binds {
     Mod+Shift+Slash {
