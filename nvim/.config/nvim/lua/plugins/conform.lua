@@ -9,6 +9,7 @@ local format = {
 	java = { "clang_format" },
 	toml = { "taplo" },
 	haskell = { "fourmolu" },
+	kdl = { "kdlfmt" },
 }
 
 local prettier = {
