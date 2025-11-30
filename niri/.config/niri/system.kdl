@@ -1,0 +1,46 @@
+spawn-at-startup "hyprpaper"
+spawn-at-startup "dunst"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+hotkey-overlay {
+    skip-at-startup
+}
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    WAYLAND_DISPLAY "wayland-1"
+    DISPLAY ":0"
+}
+input {
+    keyboard {
+        xkb {
+            layout "us,th"
+            options "grp:alt_shift_toggle"
+        }
+    }
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        accel-speed -0.2
+        scroll-factor 0.2
+    }
+    mouse {
+        accel-speed 0.7
+        accel-profile "flat"
+    }
+}
+gestures {
+    hot-corners {
+        off
+    }
+}
+overview {
+    backdrop-color "#1a1a1a"
+    workspace-shadow {
+        off
+    }
+}
+

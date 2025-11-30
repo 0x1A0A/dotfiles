@@ -1,0 +1,67 @@
+layout {
+    gaps 1
+    center-focused-column "on-overflow"
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+    default-column-width {
+        proportion 1.0
+    }
+    focus-ring {
+        width 1
+        inactive-color "#505050"
+        active-gradient from="#80c8ff" to="#c7ff7f" angle=45 relative-to="workspace-view"
+    }
+    border {
+        off
+        width 1
+        active-color "#ffc87f"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+}
+window-rule {
+    match app-id="firefox|zen$" title="^Picture-in-Picture$"
+    open-floating true
+    default-window-height {
+        fixed 240
+    }
+    default-floating-position x=8 y=8 relative-to="bottom-right"
+}
+window-rule {
+    match app-id="steam$"
+    exclude title="^Steam$"
+    open-floating true
+    default-column-width {
+        proportion 0.3
+    }
+    default-window-height {
+        fixed 240
+    }
+}
+window-rule {
+    match app-id="steam$" title="^Steam$"
+    default-column-width {
+        proportion 1.0
+    }
+}
+animations {
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+}
+
