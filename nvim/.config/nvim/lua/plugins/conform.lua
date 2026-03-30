@@ -10,6 +10,7 @@ local format = {
 	toml = { "taplo" },
 	haskell = { "fourmolu" },
 	kdl = { "kdlfmt" },
+	typst = { "prettypst" },
 }
 
 local prettier = {
