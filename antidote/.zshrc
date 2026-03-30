@@ -75,3 +75,5 @@ export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/nvim/mason/share/jdtls/lomb
 export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed 's/:$//')
 
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+export PATH="$PATH:/home/defalse/.local/bin"

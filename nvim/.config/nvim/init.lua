@@ -26,3 +26,4 @@ local stl = "%<%f%h%m%r%=%b 0x%B"
 stl = stl .. " %l,%c%V"
 stl = stl .. " %#NeoTreeFilterTerm#%y%## %P"
 vim.o.statusline = stl
+
