@@ -25,5 +25,6 @@ vim.opt.tabstop = 4
 local stl = "%<%f%h%m%r%=%b 0x%B"
 stl = stl .. " %l,%c%V"
 stl = stl .. " %#NeoTreeFilterTerm#%y%## %P"
-vim.o.statusline = stl
 
+vim.opt.statusline = stl
+vim.opt.scl = "yes"
