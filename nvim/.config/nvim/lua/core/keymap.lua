@@ -1,8 +1,11 @@
+local keymap = vim.keymap.set
+
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>h", ":noh<CR>")
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap("n", "<leader>pv", vim.cmd.Ex)
+keymap("n", "<leader>h", ":noh<CR>")
 
-vim.keymap.set("x", "<leader>p", '"_dP')
+keymap("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "K", ":m '<-2<CR>gv=gv")
+
+keymap("x", "<leader>p", '"_dP')

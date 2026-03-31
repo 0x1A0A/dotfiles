@@ -1,17 +1,13 @@
-local installed_parser = require("nvim-treesitter").get_installed()
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
-local filetypes = {}
-
-for _, v in ipairs(installed_parser) do
-	local ft = vim.treesitter.language.get_filetypes(v)
-	for _, f in ipairs(ft) do
-		table.insert(filetypes, f)
-	end
-end
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = filetypes,
-	callback = function()
-		vim.treesitter.start()
+autocmd("FileType", {
+	group = augroup("dnv_treesitter", { clear = true }),
+	callback = function(args)
+		local filetype = args.match
+		local lang = vim.treesitter.language.get_lang(filetype)
+		if lang and vim.treesitter.language.add(lang) then
+			vim.treesitter.start()
+		end
 	end,
 })
