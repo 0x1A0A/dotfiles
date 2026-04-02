@@ -10,7 +10,7 @@ vim.opt.syntax = "off"
 vim.opt.cul = true
 vim.opt.hlsearch = false
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.showbreak = ">> "
