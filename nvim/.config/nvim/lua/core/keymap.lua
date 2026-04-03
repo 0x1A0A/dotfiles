@@ -10,4 +10,6 @@ keymap("v", "K", ":m '<-2<CR>gv=gv")
 
 keymap("n", "<leader>u", vim.cmd.Undotree)
 
+keymap("x", "<leader>p", '"_dP')
+
 keymap({ "n", "v", "x" }, "<leader>wt", ":set wrap!<CR>")

@@ -32,18 +32,41 @@ for _, key in ipairs(prettier) do
 	format[key] = { "biome", "prettierd" }
 end
 
+local fpg = require("fidget.progress")
+
 require("lze").load({
 	{
 		"conform.nvim",
-		event = { "BufWritePre" },
 		lazy = true,
 		cmd = "ConformInfo",
-
 		keys = {
 			{
 				"<leader>fm",
 				function()
-					require("conform").format({ async = false })
+					local progress = fpg.handle.create({
+						title = "format " .. vim.fn.expand("%:t"),
+						message = "Working on it",
+					})
+
+					local start = vim.loop.now()
+
+					require("conform").format({ async = true }, function(err, success)
+						local elapsed = vim.loop.now() - start
+						local delay = math.max(0, 150 - elapsed)
+
+						vim.defer_fn(function()
+							if err then
+								progress:report({ message = err })
+								progress:cancel()
+								return
+							end
+
+							progress:report({
+								message = success and "Polished" or "Already clean",
+							})
+							progress:finish()
+						end, delay)
+					end)
 				end,
 				mode = "",
 			},
@@ -55,8 +78,6 @@ require("lze").load({
 					lsp_format = "fallback",
 				},
 			})
-
-			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 		end,
 	},
 })

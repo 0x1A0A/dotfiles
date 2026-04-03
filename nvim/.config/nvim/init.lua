@@ -17,6 +17,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 require("lze").load({
+	{ "nvim.undotree", lazy = false },
 	{
 		"lazydev.nvim",
 		ft = "lua",
@@ -64,7 +65,5 @@ require("lze").load({
 		},
 	},
 })
-
-vim.cmd.packadd("nvim.undotree")
 
 vim.cmd.colorscheme("catppuccin")
