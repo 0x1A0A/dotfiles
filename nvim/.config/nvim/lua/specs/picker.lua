@@ -1,4 +1,5 @@
-require("lze").load({
+---@type lze.Spec
+return {
 	{
 		"plenary.nvim",
 		dep_of = "telescope.nvim",
@@ -41,4 +42,4 @@ require("lze").load({
 			require("telescope").load_extension("fzf")
 		end,
 	},
-})
+}

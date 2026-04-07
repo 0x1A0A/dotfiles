@@ -32,9 +32,8 @@ for _, key in ipairs(prettier) do
 	format[key] = { "biome", "prettierd" }
 end
 
-local fpg = require("fidget.progress")
-
-require("lze").load({
+---@type lze.Spec
+return {
 	{
 		"conform.nvim",
 		lazy = true,
@@ -43,6 +42,8 @@ require("lze").load({
 			{
 				"<leader>fm",
 				function()
+					local fpg = require("fidget.progress")
+
 					local progress = fpg.handle.create({
 						title = "format " .. vim.fn.expand("%:t"),
 						message = "Working on it",
@@ -80,4 +81,4 @@ require("lze").load({
 			})
 		end,
 	},
-})
+}

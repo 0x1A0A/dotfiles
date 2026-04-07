@@ -1,69 +1,41 @@
-require("core.pack")
 require("core.option")
 require("core.keymap")
-require("core.formatter")
-require("core.picker")
-require("core.completion")
+require("specs.hooks")
 
-require("fidget").setup({
-	notification = {
-		override_vim_notify = true,
-	},
+local gh = function(x)
+	return "https://github.com/" .. x
+end
+
+-- lazy loader
+vim.pack.add({ gh("birdeehub/lze") })
+
+-- plugins
+vim.pack.add({
+	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
+	{ src = gh("nvim-mini/mini.icons") },
+	{ src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
+
+	gh("rafamadriz/friendly-snippets"),
+	{ src = gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
+
+	gh("mason-org/mason.nvim"),
+	gh("neovim/nvim-lspconfig"),
+	gh("mason-org/mason-lspconfig.nvim"),
+	gh("j-hui/fidget.nvim"),
+
+	{ src = gh("stevearc/oil.nvim") },
+	{ src = gh("folke/lazydev.nvim") },
+	{ src = gh("stevearc/conform.nvim") },
+
+	{ src = gh("nvim-lua/plenary.nvim") },
+	{ src = gh("nvim-telescope/telescope-fzf-native.nvim") },
+	{ src = gh("nvim-telescope/telescope.nvim") },
+
+	{ src = gh("hedyhli/outline.nvim") },
+	{ src = gh("chomosuke/typst-preview.nvim"), version = vim.version.range("1.*") },
+	{ src = gh("tpope/vim-fugitive") },
+}, {
+	load = function(_) end,
 })
 
-require("mini.icons").setup()
-
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-require("lze").load({
-	{ "nvim.undotree", lazy = false },
-	{
-		"lazydev.nvim",
-		ft = "lua",
-		after = function(_)
-			require("lazydev").setup({
-				library = {
-					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-					"lazy.nvim",
-				},
-			})
-		end,
-	},
-	{
-		"oil.nvim",
-		lazy = false,
-		after = function(_)
-			require("oil").setup({
-				default_file_explorer = false,
-			})
-		end,
-	},
-	{
-		"outline.nvim",
-		lazy = true,
-		cmd = { "Outline", "OutlineOpen" },
-		keys = { -- Example mapping to toggle outline
-			{ "<leader>o", vim.cmd.Outline, desc = "Toggle outline" },
-		},
-		after = function()
-			require("outline").setup({})
-		end,
-	},
-	{
-		"typst-preview.nvim",
-		ft = "typst",
-		after = function()
-			require("typst-preview").setup({})
-		end,
-	},
-	{
-		"vim-fugitive",
-		cmd = { "Git", "G" },
-		keys = {
-			{ "<leader>vc", vim.cmd.Git },
-		},
-	},
-})
-
-vim.cmd.colorscheme("catppuccin")
+require("lze").load(require("specs"))
