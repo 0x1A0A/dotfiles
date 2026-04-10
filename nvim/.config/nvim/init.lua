@@ -11,7 +11,6 @@ vim.pack.add({ gh("birdeehub/lze") })
 
 -- plugins
 vim.pack.add({
-	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
 	{ src = gh("nvim-mini/mini.icons") },
 	{ src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
 

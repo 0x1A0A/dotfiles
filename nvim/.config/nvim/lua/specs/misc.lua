@@ -10,12 +10,6 @@ return {
 			})
 		end,
 	},
-	{
-		"catppuccin",
-		after = function()
-			vim.cmd.colorscheme("catppuccin")
-		end,
-	},
 	{ "mini.icons" },
 	{ "nvim-treesitter" },
 	{ "nvim.undotree" },
