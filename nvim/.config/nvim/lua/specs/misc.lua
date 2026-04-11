@@ -27,7 +27,6 @@ return {
 	},
 	{
 		"oil.nvim",
-		lazy = false,
 		after = function(_)
 			require("oil").setup({
 				default_file_explorer = false,

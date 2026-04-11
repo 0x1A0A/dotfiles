@@ -26,9 +26,7 @@ vim.pack.add({
 	{ src = gh("folke/lazydev.nvim") },
 	{ src = gh("stevearc/conform.nvim") },
 
-	{ src = gh("nvim-lua/plenary.nvim") },
-	{ src = gh("nvim-telescope/telescope-fzf-native.nvim") },
-	{ src = gh("nvim-telescope/telescope.nvim") },
+	{ src = gh("ibhagwan/fzf-lua") },
 
 	{ src = gh("hedyhli/outline.nvim") },
 	{ src = gh("chomosuke/typst-preview.nvim"), version = vim.version.range("1.*") },

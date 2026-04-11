@@ -2,6 +2,7 @@
 return {
 	{
 		"mason.nvim",
+		priority = 90,
 		after = function()
 			require("mason").setup()
 		end,
