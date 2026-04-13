@@ -25,5 +25,3 @@ stl = stl .. " %#NeoTreeFilterTerm#%y%## %P"
 
 vim.opt.statusline = stl
 vim.opt.scl = "yes"
-
-vim.cmd.colorscheme("catppuccin")
