@@ -32,6 +32,10 @@ vim.pack.add({
 	{ src = gh("hedyhli/outline.nvim") },
 	{ src = gh("chomosuke/typst-preview.nvim"), version = vim.version.range("1.*") },
 	{ src = gh("tpope/vim-fugitive") },
+
+	{ src = gh("mfussenegger/nvim-dap") },
+	{ src = gh("thehamsta/nvim-dap-virtual-text") },
+	{ src = gh("igorlfs/nvim-dap-view") },
 }, {
 	load = function(_) end,
 })
