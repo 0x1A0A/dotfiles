@@ -51,11 +51,11 @@ local window_motions = {
 }
 
 for _, v in ipairs(window_motions) do
-	local key, direction = unpack(v)
-	bind(mainMod .. " + " .. key, focus({ direction }))
-	bind(mainMod .. " + SHIFT + " .. key, window.move({ direction }))
-	bind(mainMod .. " + CTRL + " .. key, window.move({ direction, follow = false }))
-	bind(mainMod .. " + ALT + " .. key, window.swap({ direction }))
+	local key, direction = table.unpack(v)
+	bind(mainMod .. " + " .. key, focus({ direction = direction }))
+	bind(mainMod .. " + SHIFT + " .. key, window.move({ direction = direction }))
+	bind(mainMod .. " + CTRL + " .. key, window.move({ direction = direction, follow = false }))
+	bind(mainMod .. " + ALT + " .. key, window.swap({ direction = direction }))
 end
 
 bind(mainMod .. " + semicolon", window.pin())
@@ -96,7 +96,7 @@ local resize_fac = 50
 local resize_key = { { "i", resize_fac, 0 }, { "o", 0, resize_fac } }
 
 for _, val in ipairs(resize_key) do
-	local key, x, y = unpack(val)
+	local key, x, y = table.unpack(val)
 	bind(mainMod .. " + " .. key, window.resize({ x = x, y = y, relative = true }))
 	bind(mainMod .. " + SHIFT + " .. key, window.resize({ x = -x, y = -y, relative = true }))
 end
