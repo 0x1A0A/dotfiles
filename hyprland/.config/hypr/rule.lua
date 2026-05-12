@@ -1,6 +1,6 @@
 local window_rule = hl.window_rule
-
 local layer_rule = hl.layer_rule
+local workspace_rule = hl.workspace_rule
 
 local suppressMaximizeRule = window_rule({
 	name = "suppress-maximize-events",
@@ -48,3 +48,5 @@ layer_rule({
 	match = { title = "^rofi$" },
 	no_anim = true,
 })
+
+workspace_rule({ workspace = "special:magic", gaps_in = 4, gaps_out = 8, no_rounding = false })
