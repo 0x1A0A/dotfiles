@@ -1,11 +1,3 @@
-local mainMod = "SUPER"
-local terminal = "ghostty"
-local menu = "rofi -show run -theme nord.rasi"
-local switcher =
-	[[hyprctl clients | awk '/title: ./ { gsub("\t*title: *", ""); print}' | rofi -dmenu -theme nord.rasi | xargs -I{} hyprctl dispatch focuswindow "title:{}"]]
-local toggle_bar = "killall waybar || waybar"
-local screen_shot = "/home/defalse/.Null/Devs/myScripts/screenshot.sh"
-
 local bind = hl.bind
 local exec_cmd = hl.dsp.exec_cmd
 local focus = hl.dsp.focus
@@ -13,42 +5,60 @@ local window = hl.dsp.window
 local workspace = hl.dsp.workspace
 local group = hl.dsp.group
 
-bind(mainMod .. " + SHIFT + return", exec_cmd(terminal))
-
-local closeWindowBind = bind(mainMod .. " + SHIFT + C", window.close())
-
-closeWindowBind:set_enabled(true)
+local mainMod = "SUPER"
 
 bind(
 	mainMod .. " + SHIFT + backslash",
 	exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
-bind(mainMod .. " + m", window.float({ action = "toggle" }))
+local terminal = "ghostty"
+bind(mainMod .. " + SHIFT + return", exec_cmd(terminal))
+
+local closeWindowBind = bind(mainMod .. " + SHIFT + C", window.close())
+
+closeWindowBind:set_enabled(true)
+
+local menu = "rofi -show run -theme nord.rasi"
 bind(mainMod .. " + space", exec_cmd(menu))
+
+local switcher =
+	[[hyprctl clients | awk '/title: ./ { gsub("\t*title: *", ""); print}' | rofi -dmenu -theme nord.rasi | xargs -I{} hyprctl dispatch focuswindow "title:{}"]]
 bind(mainMod .. " + n", exec_cmd(switcher))
+
+local toggle_bar = "killall waybar || waybar"
 bind(mainMod .. " + b", exec_cmd(toggle_bar))
 
-bind(mainMod .. " + Print", exec_cmd(screen_shot .. " d"))
-bind(mainMod .. " + SHIFT + Print", exec_cmd(screen_shot .. " s"))
-bind(mainMod .. " + CTRL + Print", exec_cmd(screen_shot .. " w"))
+local screen_shot = "/home/defalse/.Null/Devs/myScripts/screenshot.sh"
+local screen_shot_display = screen_shot .. " d"
+local screen_shot_selection = screen_shot .. " s"
+local screen_shot_window = screen_shot .. " w"
+
+bind(mainMod .. " + Print", exec_cmd(screen_shot_display))
+bind(mainMod .. " + SHIFT + Print", exec_cmd(screen_shot_selection))
+bind(mainMod .. " + CTRL + Print", exec_cmd(screen_shot_window))
 
 bind(mainMod .. " + P", window.pseudo())
 bind(mainMod .. " + V", hl.dsp.layout("togglesplit"))
 bind(mainMod .. " + SHIFT + F", window.fullscreen({ mode = "fullscreen", action = "toggle" })) -- dwindle only
+bind(mainMod .. " + m", window.float({ action = "toggle" }))
 
-bind(mainMod .. " + h", focus({ direction = "left" }))
-bind(mainMod .. " + SHIFT + h", window.move({ direction = "l" }))
-bind(mainMod .. " + ALT + h", window.swap({ direction = "l" }))
-bind(mainMod .. " + l", focus({ direction = "right" }))
-bind(mainMod .. " + SHIFT + l", window.move({ direction = "r" }))
-bind(mainMod .. " + ALT + l", window.swap({ direction = "r" }))
-bind(mainMod .. " + k", focus({ direction = "up" }))
-bind(mainMod .. " + SHIFT + k", window.move({ direction = "u" }))
-bind(mainMod .. " + ALT + k", window.swap({ direction = "u" }))
-bind(mainMod .. " + j", focus({ direction = "down" }))
-bind(mainMod .. " + SHIFT + j", window.move({ direction = "d" }))
-bind(mainMod .. " + ALT + j", window.swap({ direction = "d" }))
+local window_motions = {
+	{ "h", "l" },
+	{ "l", "r" },
+	{ "j", "d" },
+	{ "k", "u" },
+}
+
+for _, v in ipairs(window_motions) do
+	local key, direction = unpack(v)
+	bind(mainMod .. " + " .. key, focus({ direction }))
+	bind(mainMod .. " + SHIFT + " .. key, window.move({ direction }))
+	bind(mainMod .. " + CTRL + " .. key, window.move({ direction, follow = false }))
+	bind(mainMod .. " + ALT + " .. key, window.swap({ direction }))
+end
+
+bind(mainMod .. " + semicolon", window.pin())
 
 bind(mainMod .. " + comma", focus({ monitor = "l" }))
 bind(mainMod .. " + period", focus({ monitor = "r" }))
@@ -60,8 +70,6 @@ bind(mainMod .. " + e", focus({ workspace = "m+1" }))
 
 bind(mainMod .. " + SHIFT + e", focus({ workspace = "emptynm" }))
 bind(mainMod .. " + SHIFT + N", focus({ workspace = "emptynm" }))
-
-bind(mainMod .. " + semicolon", window.pin())
 
 bind(mainMod .. " + tab", focus({ last = true }))
 bind(mainMod .. " + SHIFT + tab", focus({ workspace = "previous" }))
@@ -75,20 +83,23 @@ end
 
 bind(mainMod .. " + S", workspace.toggle_special("magic"))
 bind(mainMod .. " + SHIFT + S", window.move({ workspace = "special:magic" }))
-bind(mainMod .. " + U", window.move({ workspace = "m+0" }))
-bind(mainMod .. " + CTRL + U", window.move({ workspace = "m+0", follow = false }))
 
 bind(mainMod .. " + A", workspace.toggle_special("gap"))
 bind(mainMod .. " + SHIFT + A", window.move({ workspace = "special:gap" }))
 
+bind(mainMod .. " + U", window.move({ workspace = "m+0" }))
+bind(mainMod .. " + CTRL + U", window.move({ workspace = "m+0", follow = false }))
+
 bind(mainMod .. " + G", group.toggle())
 
-local resize_pix = 50
+local resize_fac = 50
+local resize_key = { { "i", resize_fac, 0 }, { "o", 0, resize_fac } }
 
-bind(mainMod .. " + i", window.resize({ x = resize_pix, y = 0, relative = true }))
-bind(mainMod .. " + o", window.resize({ x = -resize_pix, y = 0, relative = true }))
-bind(mainMod .. " + SHIFT + i", window.resize({ y = resize_pix, x = 0, relative = true }))
-bind(mainMod .. " + SHIFT + o", window.resize({ y = -resize_pix, x = 0, relative = true }))
+for _, val in ipairs(resize_key) do
+	local key, x, y = unpack(val)
+	bind(mainMod .. " + " .. key, window.resize({ x = x, y = y, relative = true }))
+	bind(mainMod .. " + SHIFT + " .. key, window.resize({ x = -x, y = -y, relative = true }))
+end
 
 bind(mainMod .. " + mouse_down", focus({ workspace = "e+1" }))
 bind(mainMod .. " + mouse_up", focus({ workspace = "e-1" }))
