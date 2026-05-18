@@ -77,3 +77,4 @@ export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed '
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
 export PATH="$PATH:/home/defalse/.local/bin"
+export PATH="$PATH:$HOME/fvm/default/bin"
