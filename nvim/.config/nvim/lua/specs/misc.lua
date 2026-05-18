@@ -19,6 +19,7 @@ return {
 	{ "mini.icons" },
 	{ "nvim-treesitter" },
 	{ "nvim.undotree" },
+	{ "plenary.nvim" },
 	{
 		"lazydev.nvim",
 		ft = "lua",

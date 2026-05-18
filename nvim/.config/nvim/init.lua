@@ -23,6 +23,8 @@ vim.pack.add({
 	gh("mason-org/mason-lspconfig.nvim"),
 	gh("j-hui/fidget.nvim"),
 
+	gh("nvim-lua/plenary.nvim"),
+
 	{ src = gh("stevearc/oil.nvim") },
 	{ src = gh("folke/lazydev.nvim") },
 	{ src = gh("stevearc/conform.nvim") },
@@ -36,6 +38,8 @@ vim.pack.add({
 	{ src = gh("mfussenegger/nvim-dap") },
 	{ src = gh("thehamsta/nvim-dap-virtual-text") },
 	{ src = gh("igorlfs/nvim-dap-view") },
+
+	gh("nvim-flutter/flutter-tools.nvim"),
 }, {
 	load = function(_) end,
 })

@@ -5,4 +5,5 @@ return {
 	{ import = "specs.completion" },
 	{ import = "specs.formatter" },
 	{ import = "specs.dap" },
+	{ import = "specs.flutter" },
 }
