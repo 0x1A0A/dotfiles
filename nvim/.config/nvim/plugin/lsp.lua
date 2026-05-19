@@ -38,7 +38,7 @@ local enable_server = {
 	"bashls",
 	"glasgow",
 	"hls",
-	"rust_analyzer",
+	--"rust_analyzer",
 	"lua_ls",
 	"denols",
 	"vtsls",

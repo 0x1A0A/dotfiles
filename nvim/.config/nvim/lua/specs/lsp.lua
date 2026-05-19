@@ -14,4 +14,12 @@ return {
 		end,
 	},
 	{ "nvim-lspconfig" },
+	{ "rustaceanvim" },
+	{
+		"flutter-tools.nvim",
+		lazy = false,
+		after = function()
+			require("flutter-tools").setup({})
+		end,
+	},
 }

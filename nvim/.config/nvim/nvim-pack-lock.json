@@ -82,6 +82,11 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "rustaceanvim": {
+      "rev": "a60811ae6054ba981cb4693aaecd715dea783327",
+      "src": "https://github.com/mrcjkb/rustaceanvim",
+      "version": "9.0.0 - 10.0.0"
+    },
     "typst-preview.nvim": {
       "rev": "325036ee145ca51d9efb145c09ac16bce3bc8b7d",
       "src": "https://github.com/chomosuke/typst-preview.nvim",

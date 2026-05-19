@@ -40,6 +40,8 @@ vim.pack.add({
 	{ src = gh("igorlfs/nvim-dap-view") },
 
 	gh("nvim-flutter/flutter-tools.nvim"),
+
+	{ src = gh("mrcjkb/rustaceanvim"), version = vim.version.range("^9") },
 }, {
 	load = function(_) end,
 })
