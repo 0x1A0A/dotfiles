@@ -44,6 +44,7 @@ local enable_server = {
 	"vtsls",
 	"vue_ls",
 	--"ts_ls",
+	"ruby_lsp",
 }
 
 for _, server in ipairs(enable_server) do

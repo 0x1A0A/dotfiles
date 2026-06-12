@@ -78,3 +78,5 @@ export PATH=$(echo $PATH | awk -v RS=: '!seen[$0]++ {printf("%s:", $0)}' | sed '
 
 export PATH="$PATH:/home/defalse/.local/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
+
+[ -f "$HOME/.local/bin/mise" ] && eval "$($HOME/.local/bin/mise activate zsh)"

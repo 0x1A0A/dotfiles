@@ -1,3 +1,5 @@
+local keymap = vim.keymap.set
+
 ---@type lze.Spec
 return {
 	{
@@ -35,9 +37,12 @@ return {
 	{
 		"oil.nvim",
 		after = function(_)
-			require("oil").setup({
+			local oil = require("oil")
+			oil.setup({
 				default_file_explorer = false,
 			})
+
+			keymap("n", "<leader>-", oil.toggle_float)
 		end,
 	},
 	{

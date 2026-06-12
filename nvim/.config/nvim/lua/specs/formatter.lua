@@ -11,6 +11,8 @@ local format = {
 	haskell = { "fourmolu" },
 	kdl = { "kdlfmt" },
 	typst = { "prettypst" },
+	ruby = { "rubocop" },
+	eruby = { "rubocop" },
 }
 
 local prettier = {
