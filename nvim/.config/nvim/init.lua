@@ -43,6 +43,8 @@ vim.pack.add({
 	gh("nvim-flutter/flutter-tools.nvim"),
 
 	{ src = gh("mrcjkb/rustaceanvim"), version = vim.version.range("^9") },
+
+	gh("scalameta/nvim-metals"),
 }, {
 	load = function(_) end,
 })
