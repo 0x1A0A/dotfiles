@@ -83,7 +83,7 @@ return {
 			{ "<leader>fh", "<cmd>FzfLua helptags<CR>", mode = "n" },
 		},
 		after = function()
-			require("fzf-lua").setup({ ui_select = true })
+			require("fzf-lua").setup({ ui_select = {} })
 		end,
 	},
 }
