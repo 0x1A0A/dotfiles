@@ -9,7 +9,7 @@ binds {
         spawn-sh "rofi -show run -theme nord.rasi"
     }
     Mod+b hotkey-overlay-title="Toggle waybar" {
-        spawn-sh "killall waybar || waybar"
+        spawn-sh "noctalia msg bar-toggle"
     }
     Mod+N hotkey-overlay-title="Switcher" {
         spawn-sh "niri msg -j windows | jq -r 'map(select(.is_focused==false))[] | pick(.id,.app_id,.title) | join(\" \")' | rofi -dmenu -theme nord.rasi | awk '{print $1}' | xargs -I{} niri msg action focus-window --id {}"

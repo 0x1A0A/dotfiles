@@ -1,8 +1,6 @@
-spawn-at-startup "hyprpaper"
-spawn-at-startup "dunst"
+spawn-sh-at-startup "noctalia"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 hotkey-overlay {
     skip-at-startup
 }

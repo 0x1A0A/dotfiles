@@ -64,4 +64,16 @@ animations {
         curve "ease-out-quad"
     }
 }
-
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width {
+        fixed 1080
+    }
+    default-window-height {
+        fixed 920
+    }
+}
+debug {
+    honor-xdg-activation-with-invalid-serial
+}

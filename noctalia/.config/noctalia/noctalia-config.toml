@@ -4,14 +4,15 @@ tint_intensity = 0.29999999329447746
 [bar.default]
 background_opacity = 0.60999998636543751
 capsule_thickness = 0.79999998584389687
-end = [ "media", "network", "notifications", "volume", "brightness", "battery" ]
+end = [ "media", "network", "notifications", "volume", "brightness", "battery", "clipboard" ]
 layer = "overlay"
 margin_ends = 50
 padding = 16
 panel_overlap = 0
 radius = 8
 reserve_space = false
-smart_auto_hide = true
+smart_auto_hide = false
+start = [ "settings", "launcher", "wallpaper", "workspaces" ]
 thickness = 32
 widget_spacing = 8
 
@@ -93,6 +94,9 @@ corner_radius_scale = 0.65000000968575478
 font_family = "FiraCode Nerd Font Mono"
 telemetry_enabled = true
 
+    [shell.launcher]
+    compact = true
+
 [system.monitor]
 enabled = false
 
@@ -122,3 +126,9 @@ enabled = false
 [widget.battery]
 display_mode = "graphic"
 show_label = false
+
+[widget.launcher]
+enabled = false
+
+[widget.wallpaper]
+enabled = false
