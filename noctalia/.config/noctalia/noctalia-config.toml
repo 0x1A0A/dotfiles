@@ -88,7 +88,12 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-2" ]
         show_weather = true
 
 [notification]
+background_opacity = 0.60999998636543751
 layer = "overlay"
+
+[osd]
+background_opacity = 0.60999998636543751
+position = "top_right"
 
 [shell]
 corner_radius_scale = 0.65000000968575478
