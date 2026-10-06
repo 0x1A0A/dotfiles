@@ -12,7 +12,8 @@ local format = {
 	kdl = { "kdlfmt" },
 	typst = { "prettypst" },
 	ruby = { "rubocop" },
-	eruby = { "rubocop" },
+	eruby = { "erb_format" },
+	php = { "php-cs-fixer" },
 }
 
 local prettier = {
@@ -31,7 +32,7 @@ local prettier = {
 }
 
 for _, key in ipairs(prettier) do
-	format[key] = { "biome", "prettierd" }
+	format[key] = { "biome", "prettierd", stop_after_first = true }
 end
 
 ---@type lze.Spec
