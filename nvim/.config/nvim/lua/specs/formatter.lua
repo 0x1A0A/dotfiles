@@ -52,10 +52,10 @@ return {
 						message = "Working on it",
 					})
 
-					local start = vim.loop.now()
+					local start = vim.uv.now()
 
 					require("conform").format({ async = true }, function(err, success)
-						local elapsed = vim.loop.now() - start
+						local elapsed = vim.uv.now() - start
 						local delay = math.max(0, 150 - elapsed)
 
 						vim.defer_fn(function()
@@ -78,6 +78,9 @@ return {
 		after = function(_)
 			require("conform").setup({
 				formatters_by_ft = format,
+				formatters = {
+					biome = { require_cwd = true },
+				},
 				default_format_opts = {
 					lsp_format = "fallback",
 				},
