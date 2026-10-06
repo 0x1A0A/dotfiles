@@ -21,8 +21,12 @@ local hooks = function(ev)
 		vim.cmd("TSUpdate")
 	end
 
-	if name == "telescope-fzf-native.nvim" and build then
-		vim.system({ "make" }, { cwd = ev.data.path })
+	if name == "blink.cmp" and build then
+		vim.cmd.packadd("blink.lib")
+		if not ev.data.active then
+			vim.cmd.packadd("blink.cmp")
+		end
+		require("blink.cmp").build():pwait()
 	end
 end
 

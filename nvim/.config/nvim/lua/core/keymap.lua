@@ -12,4 +12,4 @@ keymap("n", "<leader>u", vim.cmd.Undotree)
 
 keymap("x", "<leader>p", '"_dP')
 
-keymap({ "n", "v", "x" }, "<leader>wt", ":set wrap!<CR>")
+keymap({ "n", "x" }, "<leader>wt", ":set wrap!<CR>")

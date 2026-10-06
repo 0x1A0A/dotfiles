@@ -1,6 +1,7 @@
 ---@type lze.Spec
 return {
 	{ "friendly-snippets" },
+	{ "blink.lib", dep_of = "blink.cmp" },
 	{
 		"blink.cmp",
 		after = function()
@@ -18,7 +19,7 @@ return {
 						"snippet_forward",
 						"fallback",
 					},
-					["<S-Tab>"] = { "snippet_forward", "fallback" },
+					["<S-Tab>"] = { "snippet_backward", "fallback" },
 					["<C-o>"] = { "show", "show_documentation", "hide_documentation" },
 				},
 

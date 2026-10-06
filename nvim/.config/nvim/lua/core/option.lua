@@ -1,6 +1,6 @@
 vim.opt.guicursor = ""
 vim.opt.number = true
-vim.opt.updatetime = 66
+vim.opt.updatetime = 250
 
 vim.opt.foldenable = false
 vim.opt.foldmethod = "indent"
