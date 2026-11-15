@@ -4,13 +4,6 @@ spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 hotkey-overlay {
     skip-at-startup
 }
-environment {
-    XDG_CURRENT_DESKTOP "niri"
-    XDG_SESSION_DESKTOP "niri"
-    XDG_SESSION_TYPE "wayland"
-    WAYLAND_DISPLAY "wayland-1"
-    DISPLAY ":0"
-}
 input {
     keyboard {
         xkb {
