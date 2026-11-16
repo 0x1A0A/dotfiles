@@ -80,3 +80,10 @@ export PATH="$PATH:/home/defalse/.local/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 
 [ -f "$HOME/.local/bin/mise" ] && eval "$($HOME/.local/bin/mise activate zsh)"
+
+# bun completions
+[ -s "/Users/notlinux2/.bun/_bun" ] && source "/Users/notlinux2/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
